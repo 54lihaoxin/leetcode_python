@@ -13,3 +13,4 @@ class TestSuite:
         print "input:\t", numbers
         print "expect:\t", 1
         print "output:\t", n
+        
