@@ -13,7 +13,7 @@ class TestSuite:
         q = TreeNode('q')
         
         isSameTree = Solution().isSameTree(p, q)
-        print "input:\t", isSameTree
+#         print "input:\t", isSameTree
         print "expect:\t", False
         print "output:\t", isSameTree
 
