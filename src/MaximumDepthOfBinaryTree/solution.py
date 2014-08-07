@@ -7,6 +7,7 @@
 #         self.right = None
 
 class Solution:
+    
     # @param root, a tree node
     # @return an integer
     def maxDepth(self, root):
