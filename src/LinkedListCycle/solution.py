@@ -8,6 +8,7 @@
 
 
 class Solution:
+    
     # @param head, a ListNode
     # @return a boolean
     def hasCycle(self, head):
