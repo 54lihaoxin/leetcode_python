@@ -1,6 +1,6 @@
 
 
-debug = True
+debug = False
 
 
 class Solution:
@@ -17,7 +17,8 @@ class Solution:
             isHoldingStock = False
             for i in range(0, len(prices)):
                 if i == 0:
-                    if prices[i] < prices[i + 1]:
+                    if (isHoldingStock == False and 
+                        prices[i] < prices[i + 1]):
                         # hxl: buy on first day
                         buyPrice = prices[0]
                         isHoldingStock = True
@@ -29,12 +30,14 @@ class Solution:
                         isHoldingStock = False
                         if debug: print 'sell i:', i, 'price:', prices[i], 'balance:', balance
                 else:   # hxl: for any day in the middle
-                    if (isHoldingStock == True and prices[i - 1] <= prices[i] and prices[i] > prices[i + 1]):
+                    if (isHoldingStock == True and 
+                        prices[i - 1] <= prices[i] and prices[i] > prices[i + 1]):
                         sellPrice = prices[i]
                         balance += sellPrice - buyPrice
                         isHoldingStock = False
                         if debug: print 'sell i:', i, 'price:', prices[i], 'balance:', balance
-                    elif prices[i - 1] >= prices[i] and prices[i] < prices[i + 1]:
+                    elif (isHoldingStock == False and 
+                          prices[i - 1] >= prices[i] and prices[i] < prices[i + 1]):
                         buyPrice = prices[i]
                         isHoldingStock = True
                         if debug: print 'buy i:', i, 'price:', prices[i]
