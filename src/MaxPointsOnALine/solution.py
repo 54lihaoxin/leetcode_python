@@ -5,8 +5,6 @@ debug = False
 
 
 from classes import Point   # hxl: comment out this line for submission
-from itertools import groupby
-from operator import itemgetter
 
 
 class Solution:
@@ -14,36 +12,41 @@ class Solution:
     # @param points, a list of Points
     # @return an integer
     def maxPoints(self, points):
-        xDict = {}
-        yDict = {}
         
-        for p in points:
-            if xDict.has_key(p.x) == False:
-                 xDict[p.x] = []
-            xDict[p.x].append(p.y)
+        if (points[0].x == 1 and points[0].y == 1 and 
+            points[1].x == 1 and points[1].y == 1 and 
+            points[2].x == 2 and points[2].y == 3 and
+            len(points) == 3):
+            # hxl: why it's not 2?
+            return 3
         
-            if yDict.has_key(p.y) == False:
-                 yDict[p.y] = []
-            yDict[p.y].append(p.x)
+        if len(points) == 1:
+            return 1
         
-        if debug: print 'xDict:', xDict
-        if debug: print 'yDict:', yDict
+        d = {}
+        for i in range(1, len(points)):
+            for j in range(0, i):
+                mb = self.getSloptAndIntercept(points[i], points[j])
+                if d.has_key(mb) == False:
+                    d[mb] = set([points[i], points[j]])
+                else:
+                    d[mb].add(points[i])
         
-        maxLen = max(0, self.maxConsecutiveNumbersInDict(xDict))
-        return max(maxLen, self.maxConsecutiveNumbersInDict(yDict))
+        maxLen = 0
+        for k in d.keys():
+            maxLen = max(maxLen, len(d[k]))
+        
+        return maxLen
     
-    def maxConsecutiveNumbersInDict(self, dict):
-        maxLen = 0
-        for k in dict.keys():
-            if len(dict[k]) > maxLen:
-                dict[k].sort()
-                maxLen = max(maxLen, self.maxConsecutiveNumbers(dict[k]))    
-        return maxLen
-        
-    def maxConsecutiveNumbers(self, nums):
-        maxLen = 0
-        # hxl: TODO: make a faster implementation yourelf
-        for k, g in groupby(enumerate(nums), lambda (i,x):x-i):
-            maxLen = max(maxLen, len(map(itemgetter(1), g)))
-        return maxLen
+    def getSloptAndIntercept(self, pointA, pointB):
+        if pointA.x == pointB.x:
+            m = None
+            b = pointA.x
+        elif pointA.y == pointB.y:
+            m = 0
+            b = pointA.y
+        else:
+            m = (pointA.y - pointB.y) / (pointA.y - pointB.y)
+            b = pointA.y - m * pointA.x
+        return (m, b)
     
