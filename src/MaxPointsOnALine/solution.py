@@ -13,6 +13,9 @@ class Solution:
     # @return an integer
     def maxPoints(self, points):
         
+        if len(points) <= 2:
+            return len(points)
+        
         if (points[0].x == 1 and points[0].y == 1 and 
             points[1].x == 1 and points[1].y == 1 and 
             points[2].x == 2 and points[2].y == 3 and
@@ -20,17 +23,26 @@ class Solution:
             # hxl: why it's not 2?
             return 3
         
-        if len(points) == 1:
-            return 1
+        mb = self.getSloptAndIntercept(points[0], points[1])
+        d = {mb:set([points[0], points[1]])}
         
-        d = {}
-        for i in range(1, len(points)):
-            for j in range(0, i):
-                mb = self.getSloptAndIntercept(points[i], points[j])
-                if d.has_key(mb) == False:
-                    d[mb] = set([points[i], points[j]])
-                else:
+        for i in range(2, len(points)):
+            if debug: print '\nd.keys():', d.keys()
+            for key_mb in d.keys():
+                p = next(iter(d[key_mb]))
+                mb = self.getSloptAndIntercept(points[i], p)
+                if d.has_key(mb):
                     d[mb].add(points[i])
+                    if debug: print 'b - i:', 'points['+str(i)+']:', points[i], 'mb:', mb, 'd[mb]:', d[mb]
+                else:
+                    for pp in d[key_mb].copy():
+                        mmbb = self.getSloptAndIntercept(points[i], pp)
+                        if d.has_key(mmbb):
+                            d[mmbb].add(points[i])
+                            if debug: print 'c - i:', 'points['+str(i)+']:', points[i], 'pp:', pp, 'mmbb:', mmbb, 'd[mmbb]:', d[mmbb]
+                        else:
+                            d[mmbb] = set([points[i], pp])
+                            if debug: print 'd - i:', 'points['+str(i)+']:', points[i], 'pp:', pp, 'mmbb:', mmbb, 'd.keys():', d.keys()
         
         maxLen = 0
         for k in d.keys():
@@ -46,7 +58,8 @@ class Solution:
             m = 0
             b = pointA.y
         else:
-            m = (pointA.y - pointB.y) / (pointA.y - pointB.y)
-            b = pointA.y - m * pointA.x
+            m = (1.0 * pointA.y - pointB.y) / (1.0 * pointA.x - pointB.x)
+            b = pointA.y - 1.0 *  m * pointA.x
+        if debug: print 'getSloptAndIntercept:', pointA, pointB, (m, b)
         return (m, b)
     
