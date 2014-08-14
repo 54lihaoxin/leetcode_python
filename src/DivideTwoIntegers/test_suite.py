@@ -14,7 +14,8 @@ class TestSuite:
         self.test004()
         self.test005()
         self.test006()
-#         self.test007()
+        self.test007()
+        self.test008()
 
     def test001(self):
         print "test 001"
@@ -24,6 +25,7 @@ class TestSuite:
         r = Solution().divide(a, b)
         
         print "  input:\t", a, b
+        print "  expect:\t", 0
         print "  output:\t", r
         print
     
@@ -35,6 +37,7 @@ class TestSuite:
         r = Solution().divide(a, b)
         
         print "  input:\t", a, b
+        print "  expect:\t", 2
         print "  output:\t", r
         print
     
@@ -46,6 +49,7 @@ class TestSuite:
         r = Solution().divide(a, b)
         
         print "  input:\t", a, b
+        print "  expect:\t", 4
         print "  output:\t", r
         print
     
@@ -57,6 +61,7 @@ class TestSuite:
         r = Solution().divide(a, b)
         
         print "  input:\t", a, b
+        print "  expect:\t", 25
         print "  output:\t", r
         print
     
@@ -68,6 +73,7 @@ class TestSuite:
         r = Solution().divide(a, b)
         
         print "  input:\t", a, b
+        print "  expect:\t", -1
         print "  output:\t", r
         print
     
@@ -79,6 +85,31 @@ class TestSuite:
         r = Solution().divide(a, b)
         
         print "  input:\t", a, b
+        print "  expect:\t", -1
+        print "  output:\t", r
+        print
+    
+    def test007(self):
+        print "test 007"
+        
+        a = 2147483647
+        b = 1
+        r = Solution().divide(a, b)
+        
+        print "  input:\t", a, b
+        print "  expect:\t", 2147483647
+        print "  output:\t", r
+        print
+    
+    def test008(self):
+        print "test 008"
+        
+        a = -2147483648
+        b = 2
+        r = Solution().divide(a, b)
+        
+        print "  input:\t", a, b
+        print "  expect:\t", -1073741824
         print "  output:\t", r
         print
         

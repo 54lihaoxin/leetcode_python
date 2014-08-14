@@ -24,14 +24,18 @@ class Solution:
                 return 0
         elif dividend == divisor:
             return 1
+        elif divisor == 1:
+            return dividend
+        elif divisor == -1:
+            return -dividend
         
         if dividend > 0 and divisor < 0:
-            if self.isJMultipleOfK(dividend, divisor) != 0:
+            if self.isJMultipleOfK(dividend, divisor):
                 return - self.divide(dividend, -divisor)
             else:
                 return - self.divide(dividend, -divisor) - 1
         elif dividend < 0 and divisor > 0:
-            if self.isJMultipleOfK(dividend, divisor) != 0:
+            if self.isJMultipleOfK(dividend, divisor):
                 return - self.divide(-dividend, divisor)
             else:
                 return - self.divide(-dividend, divisor) - 1
@@ -60,10 +64,12 @@ class Solution:
     def isJMultipleOfK(self, j, k):
         a = abs(j)
         b = abs(k)
-        while b << 1 <= b:
+        q = 1
+        while b << 1 <= a:
             b <<= 1
-        if a == b:
-            return j / k
+            q <<= 1
+        if a == b or abs(k) == 1:
+            return True
         else:
-            return 0
+            return False
         
