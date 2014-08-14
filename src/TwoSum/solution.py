@@ -17,5 +17,5 @@ class Solution:
             if d.has_key(num[i]):
                 return (d[num[i]], i + 1)   # hxl: assume there is always a match
             else:
-                d[num[i]] = i + 1
+                d[target - num[i]] = i + 1
         
