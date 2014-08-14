@@ -12,8 +12,8 @@ class TestSuite:
         self.test002()
         self.test003()
         self.test004()
-#         self.test005()
-#         self.test006()
+        self.test005()
+        self.test006()
 #         self.test007()
 
     def test001(self):
@@ -52,8 +52,30 @@ class TestSuite:
     def test004(self):
         print "test 004"
         
+        a = 128
+        b = 5
+        r = Solution().divide(a, b)
+        
+        print "  input:\t", a, b
+        print "  output:\t", r
+        print
+    
+    def test005(self):
+        print "test 005"
+        
         a = 1
-        b = 1
+        b = -3
+        r = Solution().divide(a, b)
+        
+        print "  input:\t", a, b
+        print "  output:\t", r
+        print
+    
+    def test006(self):
+        print "test 006"
+        
+        a = 1
+        b = -1
         r = Solution().divide(a, b)
         
         print "  input:\t", a, b
