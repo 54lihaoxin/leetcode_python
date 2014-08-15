@@ -40,7 +40,7 @@ class TestSuite:
         nD.right = nE
         nI.left = nH
         
-        r = Solution().levelOrder(nF)
+        r = Solution().levelOrderBottom(nF)
         
         print "  input:\t", nF
         print "  output:\t", r
@@ -52,7 +52,7 @@ class TestSuite:
         
         nA = TreeNode('A')
         
-        r = Solution().levelOrder(nA)
+        r = Solution().levelOrderBottom(nA)
         
         print "  input:\t", nA
         print "  output:\t", r
@@ -75,7 +75,7 @@ class TestSuite:
         nB.left = nD
         nC.right = nE
         
-        r = Solution().levelOrder(nA)
+        r = Solution().levelOrderBottom(nA)
         
         print "  input:\t", nA
         print "  output:\t", r
