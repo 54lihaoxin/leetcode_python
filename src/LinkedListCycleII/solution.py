@@ -4,7 +4,7 @@ debug = True
 debug = False
 
 
-from classes import ListNode   # hxl: comment out this line for submission, otheriwse Compiler Error on LeetCode
+from classes import ListNode   # hxl: comment out this line for submission, otherwise Compiler Error on LeetCode
 
 
 class Solution:
