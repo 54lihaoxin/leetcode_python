@@ -15,15 +15,21 @@ class Solution:
         
         if head == None:
             return False
-        
-        d = {}
-        n = head
-        while n.next != None:
-            if d.has_key(n):
+        else:
+            if head.next == head:
                 return True
-            else:
-                d[n] = n.val
-                n = n.next
+            elif head.next == None:
+                return False
+        
+        p1 = head
+        p2 = head   # hxl: move in double speed
+        while p1 != None and p2 != None:
+            p1 = p1.next
+            p2 = p2.next
+            if p2 != None:
+                p2 = p2.next
+            if p1 == p2:
+                return True
             
         return False
         
