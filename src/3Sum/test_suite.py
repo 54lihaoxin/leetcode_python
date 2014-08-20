@@ -20,10 +20,10 @@ class TestSuite:
         
         nums = [-1,0,1,2,-1,-4]
         
-        hasCycle = Solution().threeSum(nums)
+        r = Solution().threeSum(nums)
         print "  input:\t", nums
         print "  expect:\t", False
-        print "  output:\t", hasCycle
+        print "  output:\t", r
         print
 
         
