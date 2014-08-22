@@ -12,6 +12,7 @@ class Solution:
     # @param a list of ListNode
     # @return a ListNode
     def mergeKLists(self, lists):
+        if debug: print 'mergeKLists[{0}]:'.format(len(lists)), lists
         if lists == None or len(lists) == 0:
             return lists
         elif len(lists) == 1:
@@ -19,7 +20,9 @@ class Solution:
         else:
             firstHalf = self.mergeKLists(lists[:len(lists)/2])
             secondHalf = self.mergeKLists(lists[len(lists)/2:])
-            return self.mergeTwoLists(firstHalf, secondHalf)
+            r = self.mergeTwoLists(firstHalf, secondHalf)
+            if debug: print '\t merged:', r
+            return r
     
     # hxl: mergeTwoLists is copied from the problem Merge Two List
     
@@ -44,10 +47,10 @@ class Solution:
         head = cur  # hxl: Don't forget to keep a reference to the head!
         
         while l1 != None or l2 != None:
-            if debug: print 'l1:', l1
-            if debug: print 'l2:', l2
-            if debug: print 'head:', head
-            if debug: print 
+#             if debug: print 'l1:', l1
+#             if debug: print 'l2:', l2
+#             if debug: print 'head:', head
+#             if debug: print 
             if l1 == None:
                 cur.next = l2
                 return head
