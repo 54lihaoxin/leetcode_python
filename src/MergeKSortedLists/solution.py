@@ -4,9 +4,8 @@ debug = True
 debug = False
 
 
-from classes import ListNode   # hxl: comment out this line for submission
-from heapq import heappush
-from heapq import heappop
+from classes import ListNode    # hxl: comment out this line for submission
+import heapq                    # hxl: comment out this line for submission
 
 class Solution:
     
@@ -15,20 +14,27 @@ class Solution:
     # @return a ListNode
     def mergeKLists(self, lists):
         
-        r = []
+        r = None
+        cur = None
         h = []
         
         # hxl: all lists are added to the heap
-        for l in lists:
-            heappush(h, (l.val, l))
+        for node in lists:
+            if node != None:    # hxl: It could be an empty node!
+                heapq.heappush(h, (node.val, node))
             
         while len(h) != 0:
-            (val, node) = heappop(h)
-            node = node.next
-            if node != None:    # hxl: Don't forget the ending condition!
-                heappush(h, (node.val, node))
-            r.append(val)
-            
+            (val, node) = heapq.heappop(h)
+            n = ListNode(val)   # hxl: Create new nodes instead of changing the given lists!
+            if r == None:
+                r = n
+                cur = n
+            else:
+                cur.next = n
+                cur = n
+            if node.next != None:    # hxl: Don't forget the ending condition!
+                heapq.heappush(h, (node.next.val, node.next))
+                
         return r
     
     # hxl: a binary merge implementation
