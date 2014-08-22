@@ -5,13 +5,36 @@ debug = False
 
 
 from classes import ListNode   # hxl: comment out this line for submission
-
+from heapq import heappush
+from heapq import heappop
 
 class Solution:
     
+    # hxl: a heap sort implementation
     # @param a list of ListNode
     # @return a ListNode
     def mergeKLists(self, lists):
+        
+        r = []
+        h = []
+        
+        # hxl: all lists are added to the heap
+        for l in lists:
+            heappush(h, (l.val, l))
+            
+        while len(h) != 0:
+            (val, node) = heappop(h)
+            node = node.next
+            if node != None:    # hxl: Don't forget the ending condition!
+                heappush(h, (node.val, node))
+            r.append(val)
+            
+        return r
+    
+    # hxl: a binary merge implementation
+    # @param a list of ListNode
+    # @return a ListNode
+    def mergeKLists_binaryMerge(self, lists):
         if debug: print 'mergeKLists[{0}]:'.format(len(lists)), lists
         if lists == None or len(lists) == 0:
             return lists
