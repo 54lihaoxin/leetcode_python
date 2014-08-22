@@ -35,12 +35,8 @@ class Solution:
         
         # hxl: set the zeros except for the first row and column
         for r in range(1, len(matrix)):
-            if matrix[r][0] == 0:
-                for c in range(1, len(matrix[0])):
-                    matrix[r][c] = 0
-        for c in range(1, len(matrix[0])):
-            if matrix[0][c] == 0:
-                for r in range(1, len(matrix)):
+            for c in range(1, len(matrix[0])):
+                if matrix[r][0] == 0 or matrix[0][c] == 0:
                     matrix[r][c] = 0
             
         # hxl: set the zeros for the first row and column
