@@ -3,7 +3,7 @@
 import sys
 from solution import Solution
 from classes import TreeNode
-
+from classes import getTreeFromString
 
 class TestSuite:
     
@@ -18,7 +18,7 @@ class TestSuite:
         
         print 'test 000\n'
         
-        root = TreeNode(0)
+        root = getTreeFromString("{1,2,3,#,#,4,#,#,5}")
         r = Solution().isValidBST(root)
         print '  input:\t', root
         print '  expect:\t', True 
