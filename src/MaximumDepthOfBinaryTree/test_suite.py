@@ -1,6 +1,9 @@
 
+
+import sys
 from solution import Solution
 from TreeNode import TreeNode
+
 
 class TestSuite:
     
@@ -74,4 +77,11 @@ class TestSuite:
         print "input:\t", root
         print "expect:\t", 3
         print "output:\t", n
-        
+
+
+
+def main(argv):
+    TestSuite().run()
+
+if __name__ == '__main__':
+    main(sys.argv)  

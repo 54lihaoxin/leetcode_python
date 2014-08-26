@@ -1,5 +1,8 @@
 
+
+import sys
 from solution import Solution
+
 
 class TestSuite:
     
@@ -13,4 +16,10 @@ class TestSuite:
         print "input:\t", numbers
         print "expect:\t", 1
         print "output:\t", n
-        
+
+
+def main(argv):
+    TestSuite().run()
+
+if __name__ == '__main__':
+    main(sys.argv)
