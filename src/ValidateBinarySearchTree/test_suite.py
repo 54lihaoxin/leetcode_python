@@ -2,8 +2,8 @@
 
 import sys
 from solution import Solution
-from classes import TreeNode
-from classes import getTreeFromString
+from TreeNode import TreeNode
+from TreeNode import getTreeFromString
 
 class TestSuite:
     

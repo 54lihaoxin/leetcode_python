@@ -2,7 +2,7 @@
 
 import sys
 from solution import Solution
-from classes import Interval
+from Interval import Interval
 
 
 class TestSuite:

@@ -4,7 +4,7 @@ debug = True
 debug = False
 
 
-from classes import TreeNode   # hxl: comment out this line for submission
+from TreeNode import TreeNode   # hxl: comment out this line for submission
 import sys
 
 

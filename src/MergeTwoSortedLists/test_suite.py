@@ -2,7 +2,7 @@
 
 import sys
 from solution import Solution
-from classes import ListNode
+from ListNode import ListNode
 
 
 class TestSuite:

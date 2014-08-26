@@ -4,7 +4,7 @@ debug = True
 debug = False
 
 
-from classes import ListNode   # hxl: comment out this line for submission, otherwise Compiler Error on LeetCode
+from ListNode import ListNode   # hxl: comment out this line for submission, otherwise Compiler Error on LeetCode
 
 # hxl: see http://fisherlei.blogspot.com/2013/11/leetcode-linked-list-cycle-ii-solution.html
 

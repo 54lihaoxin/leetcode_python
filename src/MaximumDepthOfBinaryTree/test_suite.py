@@ -1,6 +1,6 @@
 
 from solution import Solution
-from classes import TreeNode
+from TreeNode import TreeNode
 
 class TestSuite:
     

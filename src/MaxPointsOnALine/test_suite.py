@@ -2,7 +2,7 @@
 
 import sys
 from solution import Solution
-from classes import Point
+from Point import Point
 
 
 class TestSuite:

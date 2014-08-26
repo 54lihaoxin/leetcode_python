@@ -2,8 +2,8 @@
 
 import sys
 from solution import Solution
-from classes import ListNode
-from classes import listOfLists
+from ListNode import ListNode
+from ListNode import listOfLists
 
 
 class TestSuite:

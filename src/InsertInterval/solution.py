@@ -4,7 +4,7 @@ debug = True
 debug = False
 
 
-from classes import Interval   # hxl: comment out this line for submission
+from Interval import Interval   # hxl: comment out this line for submission
 
 # hxl: Note: If the intervals line up on a loop (like 1 ~ 12 on the clock)...
 #            Simple break down the cross-origin intervals into two halves upon origin,

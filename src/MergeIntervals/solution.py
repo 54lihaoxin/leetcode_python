@@ -4,7 +4,7 @@ debug = True
 debug = False
 
 
-from classes import Interval   # hxl: comment out this line for submission
+from Interval import Interval   # hxl: comment out this line for submission
 
 # hxl: The insert() method is from the Insert Interval problem.
 

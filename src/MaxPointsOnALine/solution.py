@@ -4,7 +4,7 @@ debug = True
 debug = False
 
 
-from classes import Point   # hxl: comment out this line for submission
+from Point import Point   # hxl: comment out this line for submission
 
 
 class Solution:
