@@ -29,6 +29,6 @@ class Solution:
                 self.depthFirstSearch(n, nOpen + 1, nClose, curString + '(')
             if n > nClose:
                 self.depthFirstSearch(n, nOpen, nClose + 1, curString + ')')
-            if n == nOpen and n == nClose:
+            if n == nClose: # hxl: no need to check n == nOpen since nOpen >= nClose
                 self.result.append(curString)
         
