@@ -49,3 +49,4 @@ class Solution:
             r.append([S[0]])
             
         return r
+    
