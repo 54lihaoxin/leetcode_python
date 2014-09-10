@@ -29,7 +29,7 @@ def getTreeFromString(s):
     
     s = s[1:-1].split(',')
     
-    if len(s) == 0:
+    if len(s) < 2:  # hxl: should have '{}', at least
         return None
     
     root = TreeNode(s[0])
