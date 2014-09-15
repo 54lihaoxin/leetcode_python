@@ -44,6 +44,5 @@ class Solution:
                     else:
                         thisLine.append(lastLine[j - 1] + lastLine[j])
                 r.append(thisLine)
-                
-        return r
+            return r
         
