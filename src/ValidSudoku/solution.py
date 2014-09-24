@@ -20,7 +20,7 @@
 # A valid Sudoku board (partially filled) is not necessarily solvable. Only the filled cells need to be validated.
 
 
-# import CommonClasses    # hxl: comment out this line for submission
+# from CommonClasses import *    # hxl: comment out this line for submission
 
 
 debug = True

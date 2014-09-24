@@ -17,7 +17,7 @@
 # word = "ABCB", -> returns false.
 
 
-# import CommonClasses    # hxl: comment out this line for submission
+# from CommonClasses import *    # hxl: comment out this line for submission
 
 
 debug = True

@@ -11,7 +11,7 @@
 # [1,3,5,6], 0 -> 0
 
 
-# import CommonClasses    # hxl: comment out this line for submission
+# from CommonClasses import *    # hxl: comment out this line for submission
 
 
 debug = True

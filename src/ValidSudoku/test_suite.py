@@ -1,8 +1,6 @@
 
 
-import sys
-import time
-import CommonClasses
+from CommonClasses import *
 from solution import Solution
 
 class TestSuite:

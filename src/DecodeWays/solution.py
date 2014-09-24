@@ -14,7 +14,7 @@
 # The number of ways decoding "12" is 2.
 
 
-# import CommonClasses    # hxl: comment out this line for submission
+# from CommonClasses import *    # hxl: comment out this line for submission
 
 
 debug = True
