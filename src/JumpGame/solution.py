@@ -21,10 +21,9 @@ debug = False
 
 class Solution:
     
-    
     # @param A, a list of integers
-    # @return a boolean
-    def canJump(self, A):
+    # @return an integer
+    def jump(self, A):
         
         lastBaseIndex = 0
         i = A[lastBaseIndex]
