@@ -5,13 +5,13 @@ from solution import Solution
 class TestSuite:
     
     def run(self):
-#         self.test000()
-#         self.test001()
-#         self.test002()
-#         self.test003()
+        self.test000()
+        self.test001()
+        self.test002()
+        self.test003()
 #         self.test004()
-#         self.test005()
-#         self.test006()
+        self.test005()
+        self.test006()
         self.test007()
 
     def test000(self):
