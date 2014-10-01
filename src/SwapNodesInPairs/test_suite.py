@@ -1,10 +1,7 @@
 
 
-import sys
-import time
+from CommonClasses import *
 from solution import Solution
-from ListNode import ListNode
-from ListNode import listFromList
 
 
 class TestSuite:
@@ -20,8 +17,8 @@ class TestSuite:
         
         print 'test 000\n'
         
-        i = listFromList([1,2])
-        n = listFromList([1,2])
+        i = ListNode.listFromList([1,2])
+        n = ListNode.listFromList([1,2])
         startTime = time.clock()
         r = Solution().swapPairs(n)
         timeUsed = time.clock() - startTime
@@ -36,8 +33,8 @@ class TestSuite:
         
         print 'test 001\n'
         
-        i = listFromList([1,2,3,4])
-        n = listFromList([1,2,3,4])
+        i = ListNode.listFromList([1,2,3,4])
+        n = ListNode.listFromList([1,2,3,4])
         startTime = time.clock()
         r = Solution().swapPairs(n)
         timeUsed = time.clock() - startTime
@@ -52,8 +49,8 @@ class TestSuite:
         
         print 'test 002\n'
         
-        i = listFromList([1,2,3,4,5])
-        n = listFromList([1,2,3,4,5])
+        i = ListNode.listFromList([1,2,3,4,5])
+        n = ListNode.listFromList([1,2,3,4,5])
         startTime = time.clock()
         r = Solution().swapPairs(n)
         timeUsed = time.clock() - startTime

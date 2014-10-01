@@ -24,37 +24,38 @@ class TreeNode:
 #      5
 # The above binary tree is serialized as "{1,2,3,#,#,4,#,#,5}".
 
-# hxl: WARNING: The value in a node is a string, not a number!
-def getTreeFromString(s):
-    
-    s = s[1:-1].split(',')
-    
-    if len(s) < 2:  # hxl: should have '{}', at least
-        return None
-    
-    root = TreeNode(s[0])
-    nodeArray = [root]
-    s = s[1:]
-    isAddingToLeftChild = True
-    
-    while len(s) > 0:
-        if s[0] == '#':
-            pass
-        else:
-            if isAddingToLeftChild:
-                nodeArray[0].left = TreeNode(s[0])
-                nodeArray.append(nodeArray[0].left)
+    # hxl: WARNING: The value in a node is a string, not a number!
+    @staticmethod
+    def getTreeFromString(s):
+        
+        s = s[1:-1].split(',')
+        
+        if len(s) < 2:  # hxl: should have '{}', at least
+            return None
+        
+        root = TreeNode(s[0])
+        nodeArray = [root]
+        s = s[1:]
+        isAddingToLeftChild = True
+        
+        while len(s) > 0:
+            if s[0] == '#':
+                pass
             else:
-                nodeArray[0].right = TreeNode(s[0])
-                nodeArray.append(nodeArray[0].right)
-        
-        if isAddingToLeftChild == False:
-            nodeArray = nodeArray[1:]   # hxl: the node has two children now
+                if isAddingToLeftChild:
+                    nodeArray[0].left = TreeNode(s[0])
+                    nodeArray.append(nodeArray[0].left)
+                else:
+                    nodeArray[0].right = TreeNode(s[0])
+                    nodeArray.append(nodeArray[0].right)
             
-        if len(s) >= 1: # hxl: don't run out of index
-            s = s[1:]
+            if isAddingToLeftChild == False:
+                nodeArray = nodeArray[1:]   # hxl: the node has two children now
+                
+            if len(s) >= 1: # hxl: don't run out of index
+                s = s[1:]
+                
+            isAddingToLeftChild = not isAddingToLeftChild
             
-        isAddingToLeftChild = not isAddingToLeftChild
-        
-    return root
+        return root
     

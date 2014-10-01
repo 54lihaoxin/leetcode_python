@@ -17,8 +17,8 @@ class TestSuite:
         
         print 'test 000\n'
         
-        i = listFromList([5,4,3,2,1])
-        head = listFromList([5,4,3,2,1])
+        i = ListNode.listFromList([5,4,3,2,1])
+        head = ListNode.listFromList([5,4,3,2,1])
         n = 2
         startTime = time.clock()
         r = Solution().removeNthFromEnd(head, n)
@@ -34,8 +34,8 @@ class TestSuite:
         
         print 'test 001\n'
         
-        i = listFromList([2,1])
-        head = listFromList([2,1])
+        i = ListNode.listFromList([2,1])
+        head = ListNode.listFromList([2,1])
         n = 2
         startTime = time.clock()
         r = Solution().removeNthFromEnd(head, n)

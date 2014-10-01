@@ -17,7 +17,7 @@ class TestSuite:
         
         print 'test 000\n'
         
-        l = listFromList([1,2,3,4])
+        l = ListNode.listFromList([1,2,3,4])
         m = 2
         n = 4
         startTime = time.clock()
@@ -34,7 +34,7 @@ class TestSuite:
         
         print 'test 001\n'
         
-        l = listFromList([1,2,3,4,5])
+        l = ListNode.listFromList([1,2,3,4,5])
         m = 2
         n = 4
         startTime = time.clock()
@@ -51,7 +51,7 @@ class TestSuite:
         
         print 'test 002\n'
         
-        l = listFromList([1,2,3,4,5,6])
+        l = ListNode.listFromList([1,2,3,4,5,6])
         m = 2
         n = 4
         startTime = time.clock()
@@ -68,7 +68,7 @@ class TestSuite:
         
         print 'test 003\n'
         
-        l = listFromList([1])
+        l = ListNode.listFromList([1])
         m = 1
         n = 1
         startTime = time.clock()
@@ -85,7 +85,7 @@ class TestSuite:
         
         print 'test 004\n'
         
-        l = listFromList([3,5])
+        l = ListNode.listFromList([3,5])
         m = 2
         n = 2
         startTime = time.clock()

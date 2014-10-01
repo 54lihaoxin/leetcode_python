@@ -1,6 +1,13 @@
 
 # Definition for a undirected graph node
 class UndirectedGraphNode:
+        
+    def __init__(self, x):
+        self.label = x
+        self.neighbors = []
+
+    def __repr__(self):
+        return '[{0}]'.format(self.label)
     
     # hxl: sample input: '{0,1,2#1,2#2,2}'
     @staticmethod
@@ -20,11 +27,3 @@ class UndirectedGraphNode:
             for neighbor in nodes[1:]:
                 cur.neighbors.append(d[neighbor])
         return root
-        
-    def __init__(self, x):
-        self.label = x
-        self.neighbors = []
-
-    def __repr__(self):
-        return '[{0}]'.format(self.label)
-    

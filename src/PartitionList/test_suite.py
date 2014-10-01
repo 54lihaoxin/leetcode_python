@@ -18,8 +18,8 @@ class TestSuite:
         
         print 'test 000\n'
         
-        i = listFromList([1,4,3,2,5,2])
-        l = listFromList([1,4,3,2,5,2])
+        i = ListNode.listFromList([1,4,3,2,5,2])
+        l = ListNode.listFromList([1,4,3,2,5,2])
         n = 3
         startTime = time.clock()
         r = Solution().partition(l, n)
@@ -35,8 +35,8 @@ class TestSuite:
         
         print 'test 001\n'
         
-        i = listFromList([4,3,2,5,2])
-        l = listFromList([4,3,2,5,2])
+        i = ListNode.listFromList([4,3,2,5,2])
+        l = ListNode.listFromList([4,3,2,5,2])
         n = 3
         startTime = time.clock()
         r = Solution().partition(l, n)
@@ -52,8 +52,8 @@ class TestSuite:
         
         print 'test 002\n'
         
-        i = listFromList([1,1])
-        l = listFromList([1,1])
+        i = ListNode.listFromList([1,1])
+        l = ListNode.listFromList([1,1])
         n = 0
         startTime = time.clock()
         r = Solution().partition(l, n)
@@ -69,8 +69,8 @@ class TestSuite:
         
         print 'test 003\n'
         
-        i = listFromList([3,1,2])
-        l = listFromList([3,1,2])
+        i = ListNode.listFromList([3,1,2])
+        l = ListNode.listFromList([3,1,2])
         n = 3
         startTime = time.clock()
         r = Solution().partition(l, n)
@@ -86,8 +86,8 @@ class TestSuite:
         
         print 'test 004\n'
         
-        i = listFromList([3,3,1,2,4])
-        l = listFromList([3,3,1,2,4])
+        i = ListNode.listFromList([3,3,1,2,4])
+        l = ListNode.listFromList([3,3,1,2,4])
         n = 3
         startTime = time.clock()
         r = Solution().partition(l, n)
@@ -103,8 +103,8 @@ class TestSuite:
         
         print 'test 005\n'
         
-        i = listFromList([1,1,2])
-        l = listFromList([1,1,2])
+        i = ListNode.listFromList([1,1,2])
+        l = ListNode.listFromList([1,1,2])
         n = 0
         startTime = time.clock()
         r = Solution().partition(l, n)
