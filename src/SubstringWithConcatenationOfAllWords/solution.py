@@ -24,39 +24,48 @@ class Solution:
     # @return a list of integer
     def findSubstring(self, S, L):
         
+        wordLen = len(L[0])
+        if wordLen > len(S):
+            return []
+        
+        matchDict = {}
+        matchList = []
+        for i in range(len(S) - wordLen + 1): 
+            curWord = S[i:i + wordLen]
+            if debug: print curWord
+            if curWord in L:
+                if curWord not in matchDict:
+                    matchDict[curWord] = []
+                matchDict[curWord].append(i)
+                matchList.append(i)
+        return self.listOfValidSubstringStartIndex(S, L, matchList)
+        
+    def listOfValidSubstringStartIndex(self, S, L, candidates):
+        
+        if debug: print candidates
+        if len(candidates) == 1:
+            return candidates
+        
         r = []
         wordLen = len(L[0])
-        windowSize = wordLen * len(L)
-        i = 0
-        matchIndex = 0
-        matchDict = {}
         
-        while i <= len(S) - windowSize:
-            while matchIndex <= i + windowSize - wordLen:
-                curWord = S[matchIndex:matchIndex + wordLen]
-                if curWord in L:
-#                     print matchIndex, S[matchIndex:matchIndex + wordLen]
-                    if curWord not in matchDict:
-                        matchDict[curWord] = set()
-                    matchDict[curWord].add(matchIndex)
-                matchIndex += 1
-            if self.containAllSubstrings(i, matchDict, L):
-                r.append(i)
-            i += 1
-#         print r, matchDict
-        return r
-    
-    def containAllSubstrings(self, i, d, L):
-        
-        wordLen = len(L[0])
-        remaining = list(L)
-        
-        for j in range(len(L)):
-            k = i + j * wordLen
-            for word in d.keys():
-                if k in d[word] and word in remaining:
-                    remaining.remove(word)
+        for i in range(len(candidates) - len(L) + 1):
+            curWord = S[candidates[i]:candidates[i] + wordLen]
+            remaining = list(L)
+            remaining.remove(curWord)
+            j = 1
+            while j < len(L) and j < len(candidates):
+                nextIndex = candidates[i] + j * wordLen
+                if debug: print i, j, nextIndex
+                if nextIndex in candidates:
+                    curWord = S[nextIndex:nextIndex + wordLen]
+                    if curWord in remaining:
+                        remaining.remove(curWord)
+                else:
                     break
+                j += 1
+            if len(remaining) == 0:
+                r.append(candidates[i])
+                
+        return r
         
-        return len(remaining) == 0
-    
