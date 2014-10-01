@@ -16,3 +16,5 @@ from Point import Point
 
 from TreeNode import TreeNode
 from TreeNode import getTreeFromString
+
+from UndirectedGraphNode import UndirectedGraphNode
