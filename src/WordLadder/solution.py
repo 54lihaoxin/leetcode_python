@@ -1,79 +1,83 @@
+# Word Ladder
+# 
+# Given two words (start and end), and a dictionary, find the length of shortest transformation sequence from start to end, such that:
+# 
+# Only one letter can be changed at a time
+# Each intermediate word must exist in the dictionary
+# For example,
+# 
+# Given:
+# start = "hit"
+# end = "cog"
+# dict = ["hot","dot","dog","lot","log"]
+# As one shortest transformation is "hit" -> "hot" -> "dot" -> "dog" -> "cog",
+# return its length 5.
+# 
+# Note:
+# Return 0 if there is no such transformation sequence.
+# All words have the same length.
+# All words contain only lowercase alphabetic characters.
 
 
 debug = True
 debug = False
 
 
-# from ? import ?   # hxl: comment out this line for submission
+# from CommonClasses import * # hxl: comment out this line for submission
  
  
 class Solution:
     
-    def __init__(self):
-        # hxl: the following two dictionaries are mutual reverse
-        self.wordDict = {}      # hxl: K: word key (such as "h*t", which is for "hat" and "hit") ; V: set of words that match
-        self.matcherDict = {}   # hxl: K: a word; V: set of word keys that match (such is "*at", "h*t", and "ha*" for "hot")
-        
     # @param start, a string
     # @param end, a string
     # @param dict, a set of string
     # @return an integer
     def ladderLength(self, start, end, dict):
         
-        r = []  # hxl: result dict
-        searchQueue = []    # hxl: for BFS
-        foundLadder = False
-        visitedWords = set([start])
+        if len(start) == 1:
+            return 1
         
-        self.addWordToDict(start)
-        self.addWordToDict(end)
+        level = set([start])
+        visitedWords = set()
+        dict.add(end)
+        map = {}    # hxl: K: word; V: set of neighbor words
+        self.buildMap(map, dict, visitedWords, set(), start)
+        count = 0
         
-        for word in dict:
-            self.addWordToDict(word)
+        while len(level) != 0:
+            count += 1
+            print count
+            nextLevel = set([])
+            for curWord in level:
+                if curWord == end:
+                    return count
+                elif curWord not in visitedWords:
+                    visitedWords.add(curWord)
+                    if curWord not in map:
+                        self.buildMap(map, dict, visitedWords, level, curWord)
+                    for nextWord in map[curWord]:
+                        nextLevel.add(nextWord)
+            level = nextLevel
         
-        # hxl: initialize with the first level of children
-        for match in self.matcherDict[start]:
-            path = [start]
-            searchQueue.append([match, path])
-        # hxl: mark the end of level by an empty array
-        searchQueue.append([])
-        
-        while len(searchQueue) != 0:
-            t = searchQueue[0]
-            searchQueue = searchQueue[1:]
-            
-            if len(t) == 0: # hxl: this represents the end of level
-                if foundLadder == True:
-                    break
-                elif len(searchQueue) != 0:
-                    searchQueue.append([])  # hxl: add the "end of level" empty array only if there is one more level
-            else:
-                key = t[0]  #hxl: a key is a match that is like "h*t" for "hat" and "hit"
-                path = t[1]
-                
-                for nextWord in self.wordDict[key]:
-                    if nextWord not in visitedWords:
-                        visitedWords.add(nextWord)
-                        if nextWord != start:
-                            for key in self.matcherDict[nextWord]:
-                                if nextWord not in path:    # hxl: TODO: can check against a set instead of in a list
-                                    newPath = path[:] + [nextWord]
-                                    searchQueue.append([key, newPath])
-                        if nextWord == end:
-                            foundLadder = True
-                            r.append(path[:] + [nextWord])
-                            return len(path) + 1        
         return 0
-                
-    def addWordToDict(self, w):
-        if w not in self.matcherDict:
-            matchers = []
-            for i in range(len(w)):
-                key = w[:i] + '*' + w[i + 1:]
-                matchers.append(key)
-                if key not in self.wordDict:
-                    self.wordDict[key] = set([w])
-                else:
-                    self.wordDict[key].add(w)
-            self.matcherDict[w] = matchers
     
+    def buildMap(self, map, words, visitedWords, thisLevel, targetWord):
+        map[targetWord] = set()
+        for w in words:
+            if (w not in visitedWords
+                and w not in thisLevel
+                and self.areNeighbor(targetWord, w)):
+                map[targetWord].add(w)
+    
+    # hxl: check whether two words are different with only one character
+    def areNeighbor(self, wordA, wordB):
+        diff = 0
+        i = 0
+        while i < len(wordA):
+            if wordA[i] != wordB[i]:
+                diff += 1
+            if diff > 2:
+                return False
+            i += 1
+        return diff == 1
+        
