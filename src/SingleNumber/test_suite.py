@@ -1,6 +1,6 @@
 
 
-import sys
+from CommonClasses import *
 from solution import Solution
 
 
