@@ -53,7 +53,7 @@ class Solution:
             return []
         
         r = []
-        path = [(0, list(newDict[0]))]
+        path = [(0, list(newDict[0]))]  # hxl: this is acting list a stack of tuples (matching index, list of remaining string index)
         
         # hxl: construct the sentences with the info in newDict
         while len(path) != 0:
